@@ -6,6 +6,19 @@ import { Button } from "@/components/ui/button"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { ArrowLeft, Wallet, Bitcoin, DollarSign } from 'lucide-react';
 
+interface Variant {
+  name: string;
+  price: string;
+  features: string[];
+}
+
+interface Product {
+  id: number;
+  name: string;
+  variants: Variant[];
+  description: string;
+}
+
 const products = [
   {
     id: 1,
@@ -68,14 +81,14 @@ const products = [
 ];
 
 export default function ProductPageContent({ id }: { id: string }) {
-  const [product, setProduct] = useState<any>(null);
+  const [product, setProduct] = useState<Product | null>(null);
   const [selectedVariant, setSelectedVariant] = useState('');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchProduct = () => {
       const productId = parseInt(id);
-      const foundProduct = products.find(p => p.id === productId);
+      const foundProduct = products.find(p => p.id === productId) as Product;
       
       if (foundProduct) {
         setProduct(foundProduct);
@@ -95,7 +108,7 @@ export default function ProductPageContent({ id }: { id: string }) {
     return <div>Product not found</div>;
   }
 
-  const currentVariant = product.variants.find((v: any) => v.name === selectedVariant) || product.variants[0];
+  const currentVariant = product.variants.find((v: Variant) => v.name === selectedVariant) || product.variants[0];
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-gray-900 via-purple-900 to-indigo-900 text-white">
@@ -118,7 +131,7 @@ export default function ProductPageContent({ id }: { id: string }) {
                     <SelectValue placeholder="Select package" />
                   </SelectTrigger>
                   <SelectContent className="bg-gray-700 border-gray-600 text-white">
-                    {product.variants.map((variant: any) => (
+                    {product.variants.map((variant: Variant) => (
                       <SelectItem key={variant.name} value={variant.name}>
                         {variant.name} - {variant.price}
                       </SelectItem>

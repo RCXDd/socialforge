@@ -57,7 +57,7 @@ export default function HeroSection() {
                 <li>Choose the bulletproof setup that matches your campaign needs.</li>
                 <li>Complete your purchase securely with cryptocurrency.</li>
                 <li>Receive your high-quality assets promptly and discreetly.</li>
-                <li>Deploy your campaigns with confidence, knowing you're backed by the best.</li>
+                <li>Deploy your campaigns with confidence, knowing you&apos;re backed by the best.</li>
                 <li>Scale your media buying efforts without the fear of bans or restrictions.</li>
               </ol>
             </DialogDescription>
