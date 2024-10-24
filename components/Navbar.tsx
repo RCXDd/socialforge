@@ -10,7 +10,7 @@ export default function Navbar() {
       e.preventDefault();
       const target = e.target as HTMLAnchorElement;
       const targetId = target.getAttribute('href')?.slice(1);
-      const element = document.getElementById(targetId!);
+      const element = document.getElementById(targetId || '');
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
