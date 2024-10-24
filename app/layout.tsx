@@ -9,6 +9,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Social Media Account Shop",
   description: "Premium social media accounts for your business",
+  other: {
+    cryptomus: "eb6262ed",
+  },
 };
 
 export default function RootLayout({
@@ -18,6 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="cryptomus" content="eb6262ed" />
+      </head>
       <body className={inter.className}>
         <Navbar />
         {children}
