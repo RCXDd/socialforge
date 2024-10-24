@@ -2,6 +2,8 @@
 
 import Link from 'next/link';
 import { useEffect } from 'react';
+import { Button } from "@/components/ui/button";
+import { Send } from 'lucide-react';
 
 export default function Navbar() {
   useEffect(() => {
@@ -32,21 +34,25 @@ export default function Navbar() {
               SocialForge
             </Link>
           </div>
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
-              <Link href="/" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                Home
-              </Link>
-              <a 
-                href="#products" 
-                className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium cursor-pointer"
-              >
-                Products
-              </a>
-              <Link href="#contact" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                Contact
-              </Link>
-            </div>
+          <div className="hidden md:flex items-center space-x-4">
+            <Link href="/" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+              Home
+            </Link>
+            <a 
+              href="#products" 
+              className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium cursor-pointer"
+            >
+              Products
+            </a>
+            <a 
+              href="https://t.me/socialforgesupport" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+            >
+              <Send className="mr-2 h-4 w-4" />
+              Contact
+            </a>
           </div>
         </div>
       </div>

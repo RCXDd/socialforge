@@ -13,8 +13,8 @@ export default function Footer() {
             <h4 className="text-lg font-semibold text-white mb-4">Contact Us</h4>
             <div className="flex items-center">
               <Send size={20} className="mr-2" />
-              <a href="https://t.me/your_telegram_username" target="_blank" rel="noopener noreferrer" className="hover:text-white">
-                Contact us on Telegram
+              <a href="https://t.me/socialforgesupport" target="_blank" rel="noopener noreferrer" className="hover:text-white">
+                Contact us on Telegram: @socialforgesupport
               </a>
             </div>
           </div>

@@ -64,16 +64,16 @@ export default function ProductList() {
           {products.map((product) => {
             const IconComponent = product.icon;
             return (
-              <Card key={product.id} className="bg-gray-800 border-gray-700 text-white overflow-hidden">
+              <Card key={product.id} className="bg-gray-800 border-gray-700 text-white overflow-hidden flex flex-col h-[500px]">
                 <CardHeader className="bg-gradient-to-r from-purple-600 to-indigo-600 p-6">
                   <div className="flex items-center gap-4">
                     <IconComponent size={24} className="text-white" />
                     <CardTitle className="text-2xl font-bold">{product.name}</CardTitle>
                   </div>
                 </CardHeader>
-                <CardContent className="p-6">
+                <CardContent className="p-6 flex-grow overflow-auto">
                   <p className="text-xl font-semibold text-indigo-400 mb-4">{product.price}</p>
-                  <p className="text-gray-300 mb-4">{product.description}</p>
+                  <p className="text-gray-300 mb-4 line-clamp-3">{product.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {product.variants.map((variant, index) => (
                       <Badge key={index} variant="secondary" className="bg-gray-700 text-gray-200">
@@ -82,7 +82,7 @@ export default function ProductList() {
                     ))}
                   </div>
                 </CardContent>
-                <CardFooter className="bg-gray-800 p-6">
+                <CardFooter className="bg-gray-800 p-6 mt-auto">
                   <Link href={`/product/${product.id}`} className="w-full">
                     <Button variant="outline" className="w-full border-indigo-500 text-indigo-400 hover:bg-indigo-500 hover:text-white group">
                       View Details

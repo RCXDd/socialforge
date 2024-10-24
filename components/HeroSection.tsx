@@ -2,11 +2,16 @@
 
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Info } from "lucide-react"
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
 
 export default function HeroSection() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const scrollToProducts = () => {
     const productsSection = document.getElementById('products');
@@ -14,6 +19,10 @@ export default function HeroSection() {
       productsSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  if (!isClient) {
+    return null; // or a loading placeholder
+  }
 
   return (
     <div className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-purple-900 to-indigo-900">

@@ -83,25 +83,21 @@ const products = [
 export default function ProductPageContent({ id }: { id: string }) {
   const [product, setProduct] = useState<Product | null>(null);
   const [selectedVariant, setSelectedVariant] = useState('');
-  const [loading, setLoading] = useState(true);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    const fetchProduct = () => {
-      const productId = parseInt(id);
-      const foundProduct = products.find(p => p.id === productId) as Product;
-      
-      if (foundProduct) {
-        setProduct(foundProduct);
-        setSelectedVariant(foundProduct.variants[0].name);
-      }
-      setLoading(false);
-    };
-
-    fetchProduct();
+    setIsClient(true);
+    const productId = parseInt(id);
+    const foundProduct = products.find(p => p.id === productId) as Product;
+    
+    if (foundProduct) {
+      setProduct(foundProduct);
+      setSelectedVariant(foundProduct.variants[0].name);
+    }
   }, [id]);
 
-  if (loading) {
-    return <div>Loading product...</div>;
+  if (!isClient) {
+    return <div>Loading...</div>;
   }
 
   if (!product) {
